@@ -1,0 +1,45 @@
+linters:
+  # See the dedicated "linters" documentation section.
+  enable:
+    - errcheck
+    - gosimple
+    - govet
+    - ineffassign
+    - staticcheck
+    - typecheck
+    - unused
+    - gofmt
+    - goimports
+    - misspell
+    - revive
+    - stylecheck
+# All available settings of specific linters.
+linters-settings:
+  # See the dedicated "linters-settings" documentation section.
+  errcheck:
+    check-type-assertions: true
+  govet:
+    check-shadowing: true
+  revive:
+    severity: warning
+issues:
+  # See the dedicated "issues" documentation section.
+  - path: _test\.go
+      linters:
+        - errcheck
+        - gosec
+# output configuration options
+output:
+  # See the dedicated "output" documentation section.
+  format: colored-line-number
+  print-issued-lines: true
+  print-linter-name: true
+# Options for analysis running.
+run:
+  # See the dedicated "run" documentation section.
+  timeout: 1m
+  concurrency: 4
+  tests: true
+  modules-download-mode: readonly
+severity:
+  # See the dedicated "severity" documentation section.
