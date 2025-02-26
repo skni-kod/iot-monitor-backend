@@ -41,5 +41,3 @@ run:
   concurrency: 4
   tests: true
   modules-download-mode: readonly
-severity:
-  # See the dedicated "severity" documentation section.
