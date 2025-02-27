@@ -5,7 +5,11 @@ on:
       - main
       - master
       - dev
+<<<<<<< HEAD
       - "feature/**"
+=======
+      - 'feature/**'
+>>>>>>> 6dde08d7833a6ae7259643915fff84d7cf6c8a84
   pull_request:
 
 permissions:
