@@ -4,6 +4,8 @@ on:
     branches:
       - main
       - master
+      - dev
+      - "feature/**"
   pull_request:
 
 permissions:
