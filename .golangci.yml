@@ -1,5 +1,6 @@
+# Główna konfiguracja lintera
 linters:
-  # See the dedicated "linters" documentation section.
+  # Włączone lintery
   enable:
     - errcheck
     - gosimple
@@ -13,27 +14,36 @@ linters:
     - misspell
     - revive
     - stylecheck
-# All available settings of specific linters.
+  disable: []
+
 linters-settings:
-  # See the dedicated "linters-settings" documentation section.
   errcheck:
     check-type-assertions: true
-  govet:
-    check-shadowing: true
   revive:
     severity: warning
+  stylecheck:
+    checks: ["all"]
+  goimports:
+    local-prefixes: github.com/skni-kod/iot-monitor-backend
+
 issues:
-  # See the dedicated "issues" documentation section.
   exclude-use-default: true
-# output configuration options
+  max-issues-per-linter: 0
+  max-same-issues: 0
+  exclude-rules:
+    - path: _test\.go
+      linters:
+        - errcheck
+
 output:
-  # See the dedicated "output" documentation section.
-  format: colored-line-number
+  formats:
+    - format: colored-line-number
+      path: stdout
   print-issued-lines: true
   print-linter-name: true
-# Options for analysis running.
+  sort-results: true
+
 run:
-  # See the dedicated "run" documentation section.
   timeout: 5m
   concurrency: 4
   tests: true
