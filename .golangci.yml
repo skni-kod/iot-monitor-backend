@@ -24,10 +24,7 @@ linters-settings:
     severity: warning
 issues:
   # See the dedicated "issues" documentation section.
-  - path: _test\.go
-      linters:
-        - errcheck
-        - gosec
+  exclude-use-default: true
 # output configuration options
 output:
   # See the dedicated "output" documentation section.
@@ -37,7 +34,7 @@ output:
 # Options for analysis running.
 run:
   # See the dedicated "run" documentation section.
-  timeout: 1m
+  timeout: 5m
   concurrency: 4
   tests: true
   modules-download-mode: readonly
