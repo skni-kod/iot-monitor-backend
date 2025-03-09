@@ -26,3 +26,6 @@ func (s *SensorService) GetAllSensors(ctx context.Context) ([]*ent.Sensor, error
 // UpdateSensor
 
 // DeleteSensor
+func (s *SensorService) DeleteSensorByID(ctx context.Context, id int) error {
+	return s.sensorRepository.DeleteByID(ctx, id)
+}

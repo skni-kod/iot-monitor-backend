@@ -18,6 +18,7 @@ type Sensor struct {
 type ISensorStorage interface {
 	GetAll(ctx context.Context) ([]*ent.Sensor, error)
 	GetByID(ctx context.Context, id int) (*ent.Sensor, error)
+	DeleteByID(ctx context.Context, id int) error
 }
 
 type SensorStorage struct {
@@ -39,3 +40,6 @@ func (s *SensorStorage) GetByID(ctx context.Context, id int) (*ent.Sensor, error
 // UpdateSensor
 
 // DeleteSensor
+func (s *SensorStorage) DeleteByID(ctx context.Context, id int) error {
+	return s.client.Sensor.DeleteOneID(id).Exec(ctx)
+}
