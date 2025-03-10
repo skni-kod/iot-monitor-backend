@@ -7,11 +7,16 @@ import (
 	"github.com/skni-kod/iot-monitor-backend/pkg/sensor-simulator/storage"
 )
 
+type ISensorService interface {
+	GetSensorByID(ctx context.Context, id int) (*ent.Sensor, error)
+	GetAllSensors(ctx context.Context) ([]*ent.Sensor, error)
+}
+
 type SensorService struct {
 	sensorRepository storage.ISensorStorage
 }
 
-func NewSensorService(storage storage.ISensorStorage) *SensorService {
+func NewSensorService(storage storage.ISensorStorage) ISensorService {
 	return &SensorService{sensorRepository: storage}
 }
 
