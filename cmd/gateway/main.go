@@ -1,10 +1,9 @@
 package main
 
 import (
+	"fmt"
 	"log"
 	"net/http"
-
-	"github.com/skni-kod/iot-monitor-backend/pkg/gateway/handlers"
 )
 
 const (
@@ -13,8 +12,8 @@ const (
 
 func main() {
 	mux := http.NewServeMux()
-	handler := handlers.NewHandler()
-	handler.registerRoutes(mux)
+
+	fmt.Printf("Starting HTTP server at port: %s", httpAddr)
 
 	if err := http.ListenAndServe(httpAddr, mux); err != nil {
 		log.Fatal("Failed to start http server")
