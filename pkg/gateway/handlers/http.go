@@ -1,18 +1,25 @@
 package handlers
 
-import "net/http"
+import (
+	"net/http"
 
-type Handler struct {
-	// gateway
+	"github.com/go-chi/chi/v5"
+)
+
+type GatewayHandler struct {
+	// service handlers
 }
 
-func NewHandler() *Handler {
-	return &Handler{}
+func NewGatewayHandler() *GatewayHandler {
+	return &GatewayHandler{}
 }
 
-func (h *Handler) registerRoutes(mux *http.ServeMux) {
-	mux.HandleFunc("GET /api/sensors", h.HandleGetSensors)
-}
+func (h *GatewayHandler) RegisterRoutes(r chi.Router) {
+	r.Route("/api", func(r chi.Router) {
+	})
 
-func (h *Handler) HandleGetSensors(w http.ResponseWriter, r *http.Request) {
+	r.Get("/health", func(w http.ResponseWriter, r *http.Request) {
+		w.WriteHeader(http.StatusOK)
+		w.Write([]byte("OK"))
+	})
 }

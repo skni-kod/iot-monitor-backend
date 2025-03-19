@@ -6,6 +6,7 @@ require (
 	entgo.io/ent v0.14.2
 	gioui.org v0.8.0
 	github.com/gin-gonic/gin v1.10.0
+	github.com/go-chi/chi/v5 v5.2.1
 	github.com/mattn/go-sqlite3 v1.14.24
 )
 
